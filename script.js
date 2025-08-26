@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('verify-btn').addEventListener('click', checkEligibility);
     
 
-    document.getElementById('birthYear').addEventListener('keyup', function(event) {
+    document.getElementById('age').addEventListener('keyup', function(event) {
         if (event.key === 'Enter') {
             checkEligibility();
         }
@@ -13,8 +13,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function checkEligibility() {
 
-    const birthYearInput = document.getElementById('birthYear');
-    const birthYear = parseInt(birthYearInput.value);
+    const ageInput = document.getElementById('age');
+    const age = parseInt(ageInput.value);
     
 
     const resultElement = document.getElementById('result');
@@ -23,14 +23,10 @@ function checkEligibility() {
     const resultIcon = document.getElementById('result-icon');
     
 
-    if (isNaN(birthYear) || birthYear < 1900 || birthYear > 2023) {
-        alert("Por favor, digite um ano de nascimento válido entre 1900 e 2023.");
+    if (isNaN(age) || age < 0 || age > 130) {
+        alert("Por favor, digite uma idade válida entre 0 e 130 anos.");
         return;
     }
-    
-
-    const currentYear = new Date().getFullYear();
-    const age = currentYear - birthYear;
     
 
     if (age < 16) {
